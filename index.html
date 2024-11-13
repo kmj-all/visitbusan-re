@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>visit busan</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script>
+        window.onload = () => {
+
+            let headerInner = document.querySelector('.header .inner');
+            let prevBtn = document.querySelector('.prev');
+            let nextBtn = document.querySelector('.next');
+            let slide = document.querySelectorAll('.slide');
+            let xmasBtn = document.querySelector('.more');
+            let itemWrap = document.querySelectorAll('.item_wrap');
+            let strongNum = document.querySelector('.x-mas_btn .more span strong');
+            let nowPrev = document.querySelector('.now_prev');
+            let nowNext = document.querySelector('.now_next');
+            let nowSlide = document.querySelectorAll('.now_slide_wrap');
+            let menu = document.querySelectorAll('.menu li');
+            let themeWrap = document.querySelectorAll('.theme_wrap');
+
+            let i = 0;
+            window.addEventListener('scroll',() => {
+
+                let scrollBar = window.scrollY
+                if(i < scrollBar ){
+                    headerInner.classList.add('on')
+                } else{
+                    headerInner.classList.remove('on')
+                }
+               
+            });
+
+            nextBtn.addEventListener('click', () => {
+
+                i++;
+                console.log(slide.length);
+                if(i >= slide.length){
+                    i = 0;
+                }
+
+                slide.forEach(busanSlide =>{
+                    busanSlide.classList.remove('active');
+                })
+                slide[i].classList.add('active');
+
+            })
+
+            prevBtn.addEventListener('click', () => {
+
+            i--;
+            console.log(slide.length);
+            if(i < 0){
+                i = slide.length -1;
+            }
+
+            slide.forEach(busanSlide =>{
+                busanSlide.classList.remove('active');
+            })
+            slide[i].classList.add('active');
+
+            })
+
+            setInterval(() => {
+                i++;
+                console.log(slide.length);
+                if(i >= slide.length){
+                    i = 0;
+                }
+
+                slide.forEach(slideItem => {
+                    slideItem.classList.remove('active');
+                })
+                slide[i].classList.add('active');
+
+            }, 6500);
+
+            xmasBtn.addEventListener('click', () => {
+
+            i++;
+            console.log(itemWrap.length);
+            if(i >= itemWrap.length){
+                i = 0;
+            }
+
+            itemWrap.forEach(itemWrap =>{
+                itemWrap.classList.remove('active02');
+            })
+            itemWrap[i].classList.add('active02');
+
+            strongNum.innerHTML = i+1;
+
+
+            }); //크리스마스 버튼태그
+
+            nowNext.addEventListener('click', () => {
+
+            i++;
+            console.log(nowSlide.length);
+            if(i >= nowSlide.length){
+                i = 0;
+            }
+
+            nowSlide.forEach(nowSlide =>{
+                nowSlide.classList.remove('active03');
+            })
+            nowSlide[i].classList.add('active03');
+
+            });
+
+            nowPrev.addEventListener('click', () => {
+
+            i--;
+            console.log(nowSlide.length);
+            if(i < 0){
+            i = nowSlide.length -1;
+            }
+
+            nowSlide.forEach(nowSlide =>{
+                nowSlide.classList.remove('active03');
+            })
+            nowSlide[i].classList.add('active03');
+
+            });
+
+            for(let i = 0; i < menu.length; i++){
+                menu[i].addEventListener('click', () => {
+
+                    menu.forEach(menuItem =>{
+
+                        menuItem.classList.remove('active04')
+
+                    });
+
+                    menu[i].classList.add('active04')
+
+                    themeWrap.forEach(themeItem =>{
+
+                        themeItem.classList.remove('active04')
+                    })
+                    themeWrap[i].classList.add('active04')
+
+                });
+
+
+            };
+ 
+
+
+        }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="inner">
+            <h1>
+                <a href="#">
+                    <img src="img/logo.jpg" alt="로고">
+                </a>
+            </h1>
+            <nav class="nav">
+                <ul class="gnb">
+                   <li><a href="#">부산에 가면</a></li>
+                   <li><a href="#">추천여행</a></li>
+                   <li><a href="#">여행준비</a></li>
+                   <li><a href="#">유용한 정보</a></li>
+                </ul><!-- gnb end -->
+            </nav><!-- nav end -->
+            <div class="icon_bar">
+                <img src="img/icon/icon-search.png" alt="서치아이콘">
+                <img src="img/icon/user.png" alt="유저아이콘">
+        </div>
+    </header>
+
+    <section class="main_visual">
+        <div class="slide_wrap active">
+            <div class="slide">
+                <img src="img/visual-01.jpg" alt="메인비주얼">
+                <div class="main_text">
+                    <p>서면의 밤, 빛으로 물든 향연 속으로! ‘서면 빛 축제’</p>
+                </div><!-- main_tex end -->
+            </div><!-- slide end -->
+
+            <div class="slide">
+                <img src="img/visual-02.jpg" alt="메인비주얼2">
+                <div class="main_text">
+                    <p>아름다운 부산 밤하늘의 하모니, ‘부산불꽃축제’</p>
+                </div><!-- main_tex end -->
+            </div><!-- slide end -->
+
+            <div class="slide">
+                <img src="img/visual-03.jpg" alt="메인비주얼3">
+                <div class="main_text">
+                    <p>영화로 물드는 부산의 10월, '부산국제영화제'</p>
+                </div><!-- main_tex end -->
+            </div><!-- slide end -->
+
+        </div><!-- slide_wrap end -->
+
+        <div class="slide_btn">
+            <button class="prev"><img src="img/icon/arr-left.png" alt="왼쪽 버튼"></button>
+            <button class="next"><img src="img/icon/arr-right.png" alt="오른쪽 버튼"></button>
+        </div><!-- slide_btn end -->
+    </section><!-- main_visual end -->
+
+    <section class="x-mas">
+        <h2 class="title">미리 크리스마스 🎄</h2>
+        <div class="item_wrap active02">
+            <div class="item">
+                <img src="img/image-12.jpg" alt="듀플릿 광안점">
+                <div class="item_text">
+                    <p>부산 수영구</p>
+                    <strong>[카페] 듀플릿 광안점</strong>
+                </div>
+            </div><!-- item end -->
+
+            <div class="item">
+                <img src="img/image-13.jpg" alt="듀플릿 광안점">
+                <div class="item_text">
+                    <p>부산 기장군</p>
+                    <strong>[호텔] 아난티 부산</strong>
+                </div>
+            </div><!-- item end -->
+
+            <div class="item">
+                <img src="img/image-14.jpg" alt="광복로 겨울빛 트리축제">
+                <div class="item_text">
+                    <p>부산 중구</p>
+                    <strong>[축제] 광복로 겨울빛 트리축제</strong>
+                </div>
+            </div><!-- item end -->
+
+            <div class="item">
+                <img src="img/image-15.jpg" alt="부산 프리미엄 아울렛">
+                <div class="item_text">
+                    <p>부산 기장군</p>
+                    <strong>[아울렛] 부산 프리미엄 아울렛</strong>
+                </div>
+            </div><!-- item end -->
+        </div><!-- item_wrap end -->
+
+        <div class="item_wrap">
+            <div class="item">
+                <img src="img/image-16.jpg" alt="부산 롯데월드">
+                <div class="item_text">
+                    <p>부산 기장군</p>
+                    <strong>[테마파크] 롯데월드 부산</strong>
+                </div>
+            </div><!-- item end -->
+
+            <div class="item">
+                <img src="img/image-17.jpg" alt="오드시">
+                <div class="item_text">
+                    <p>부산 기장군</p>
+                    <strong>[카페] 오드시</strong>
+                </div>
+            </div><!-- item end -->
+
+            <div class="item">
+                <img src="img/image-18.jpg" alt="거울연못 빛축제">
+                <div class="item_text">
+                    <p>부산 진구</p>
+                    <strong>[축제] 거울연못 빛축제</strong>
+                </div>
+            </div><!-- item end -->
+
+            <div class="item">
+                <img src="img/image-19.jpg" alt="오르디">
+                <div class="item_text">
+                    <p>부산 사상구</p>
+                    <strong>[카페] 오르디</strong>
+                </div>
+            </div><!-- item end -->
+        </div><!-- item_wrap end -->
+        
+        <div class="x-mas_btn">
+            <button class="more"><p><strong>미리 크리스마스</strong>  더보기</p><span><strong>1 </strong>/ 2</span></button>
+        </div><!-- x-mas_btn end -->
+
+    </section><!-- x-mas end -->
+
+    <section class="now_busan">
+        <div class="now_box">
+            <div class="now_text">
+                <h3>지금<br>
+                부산에 가면</h3>
+                <p>지금 떠나기 좋은 여행지 어디?</p>
+            </div><!-- now_text end -->
+            <div class="box_btn">
+                <button class="now_prev"><img src="img/icon/arr-left2.png" alt="왼쪽 버튼"></button>
+                <button class="now_next"><img src="img/icon/arr-right2.png" alt="오른쪽 버튼"></button>
+            </div><!-- slide_btn end -->
+        </div><!-- now_box end -->
+        <div class="now_slide_wrap active03">
+            <div class="now_slide">
+                <img src="img/image-9.jpg" alt="가을">
+                <div class="now_text">
+                    <p>‘단풍과 캠핑의 계절’,<br>
+                        부산 가을 이모저모</p>
+                </div><!-- main_tex end -->
+            </div><!-- slide end -->
+
+            <div class="now_slide">
+                <img src="img/image-11.jpg" alt="다대포 할매집">
+                <div class="now_text">
+                    <p>바다의 낭만을 한 잔에, 다대포<br> 
+                        '할매집'의 수제 막걸리와 해산물</p>
+                </div><!-- main_tex end -->
+            </div><!-- slide end -->
+
+            <div class="now_slide">
+                <img src="img/image-10.jpg" alt="철새 생태여행">
+                <div class="now_text">
+                    <p>가을 하늘 아래, <br> 
+                        철새와 함께하는 생태여행</p>
+                </div><!-- main_tex end -->
+            </div><!-- slide end -->
+
+        </div><!-- slide_wrap end -->
+
+        <div class="now_slide_wrap">
+            
+            <div class="now_slide">
+                <img src="img/image-20.jpg" alt="갤러리카페">
+                <div class="now_text">
+                    <p>전시와 카페,<br>
+                        부산 갤러리카페 모음
+                </div><!-- main_tex end -->
+            </div><!-- slide end -->
+
+                     
+            <div class="now_slide">
+                <img src="img/image-21.jpg" alt="역사문화관">
+                <div class="now_text">
+                    <p>하야리아 기지의 모든 것, <br>
+                        부산시민공원 역사문화관
+                </div><!-- main_tex end -->
+            </div><!-- slide end -->
+
+                     
+            <div class="now_slide">
+                <img src="img/image-22.jpg" alt="역사문화관">
+                <div class="now_text">
+                    <p>낮과 밤 모두 특별해! <br>
+                    산책 맛집 '용호 별빛공원'
+                </div><!-- main_tex end -->
+            </div><!-- slide end -->
+
+        </div><!-- slide_wrap end -->
+    </section><!-- now_busan end -->
+
+    <section class="theme">
+        <h4>테마별 추천 여행지</h4>
+        <ul class="menu">
+            <li class="active04">#부산의골목길</li>
+            <li>#아름다운 야경과 함께</li>
+            <li>#미식도시 부산</li>
+            <li>#해양레저</li>
+            <li>#11월 문화관광해설사 추천여행지</li>
+        </ul>
+
+        <div class="theme_wrap active04">
+            <div class="theme_item">
+                <img src="img/image-5.jpg" alt="보수동 책방골목">
+                <p>마음에 책갈피 하나를 꽂다~<br>
+                    보수동 책방골목</p>
+            </div><!-- theme_item end -->
+
+            <div class="theme_item">
+                <img src="img/image-6.jpg" alt="해리단길">
+                <p>떠오르는 먹방의 성지<br>
+                    해리단길</p>
+            </div><!-- theme_item end -->
+
+            <div class="theme_item">
+                <img src="img/image-7.jpg" alt="전포동">
+                <p>전포카페거리와 전포공구길</p>
+            </div><!-- theme_item end -->
+
+            <div class="theme_item">
+                <img src="img/image-8.jpg" alt="영도 봉산마을">
+                <p>때 묻지 않은 순수 영도 <br>
+                    봉산마을</p>
+            </div><!-- theme_item end -->
+        </div><!-- theme_wrap end -->
+
+        
+        <div class="theme_wrap">
+            <div class="theme_item">
+                <img src="img/테마이미지01.jpg" alt="부산 나이트 페스타">
+                <p>부산의 야경을 다양하게 즐기는 법,<br>
+                별바다부산 나이트페스타</p>
+            </div><!-- theme_item end -->
+
+            <div class="theme_item">
+                <img src="img/테마이미지02.jpg" alt="부산시티투어버스">
+                <p>밤의 낭만 안고 떠나는<br>
+                부산시티투어버스</p>
+            </div><!-- theme_item end -->
+
+            <div class="theme_item">
+                <img src="img/테마이미지03.jpg" alt="부산 야경">
+                <p>강, 바다 야경을 동시에!</p>
+            </div><!-- theme_item end -->
+
+            <div class="theme_item">
+                <img src="img/테마이미지04.jpg" alt="반전매력 부산 여행지">
+                <p>반전 매력! 낮과 밤이 다른<br>
+                부산여행지</p>
+            </div><!-- theme_item end -->
+        </div><!-- theme_wrap end -->
+
+        <div class="theme_wrap">
+            <div class="theme_item">
+                <img src="img/테마이미지05.jpg" alt="오션뷰 맛집">
+                <p>여름 휴가지에서 즐기는<br>
+                오션뷰 맛집편</p>
+            </div><!-- theme_item end -->
+
+            <div class="theme_item">
+                <img src="img/테마이미지06.jpg" alt="영화가 있는 부산">
+                <p>Movie and the City<br>
+                - Visit Taste</p>
+            </div><!-- theme_item end -->
+
+            <div class="theme_item">
+                <img src="img/테마이미지07.jpg" alt="부평 깡통 야시장">
+                <p>대한민국 최초 야간 먹방 테마파크,<br>
+                부평깡통야시장</p>
+            </div><!-- theme_item end -->
+
+            <div class="theme_item">
+                <img src="img/테마이미지08.jpg" alt="범일동 포차 거리">
+                <p>부산의 밤을 완벽하게 즐기는 법!<br>
+                범일동 포차거리 맛집투어</p>
+            </div><!-- theme_item end -->
+        </div><!-- theme_wrap end -->
+
+        <div class="theme_wrap">
+            <div class="theme_item">
+                <img src="img/테마이미지09.jpg" alt="화명수상레포츠타운">
+                <p>낙동강에서 즐기는 수상 레포츠!<br>
+                화명수상레포츠타운</p>
+            </div><!-- theme_item end -->
+
+            <div class="theme_item">
+                <img src="img/테마이미지10.jpg" alt="태종대 집라인">
+                <p>태종대 집라인 타고 바다 위를 날다</p>
+            </div><!-- theme_item end -->
+
+            <div class="theme_item">
+                <img src="img/테마이미지11.jpg" alt="광안리 sup 요가">
+                <p>바다 위에서 즐기는 웰니스 관광체험<br>
+                광안리 SUP 요가</p>
+            </div><!-- theme_item end -->
+
+            <div class="theme_item">
+                <img src="img/테마이미지12.jpg" alt="다대포해양레포츠센터">
+                <p>다대포해양레포츠센터에서 즐기는<br>
+                익스트림 수상 레포츠</p>
+            </div><!-- theme_item end -->
+        </div><!-- theme_wrap end -->
+
+        <div class="theme_wrap">
+            <div class="theme_item">
+                <img src="img/테마이미지13.jpg" alt="조선통신사역사관">
+                <p>조선통신사역사관</p>
+            </div><!-- theme_item end -->
+
+            <div class="theme_item">
+                <img src="img/테마이미지14.jpg" alt="복천박물관">
+                <p>가야 왕국의 구환, 복천박물관</p>
+            </div><!-- theme_item end -->
+
+            <div class="theme_item">
+                <img src="img/테마이미지15.jpg" alt="동삼동패총전시관">
+                <p>신석기시대 영도를 만나다,<br>
+                '동삼동패총전시관'</p>
+            </div><!-- theme_item end -->
+
+            <div class="theme_item">
+                <img src="img/테마이미지16.jpg" alt="부산시민공원 역사문화관">
+                <p>하야리아 기지의 모든 것,<br>
+                부산시민공원 역사문화관</p>
+            </div><!-- theme_item end -->
+        </div><!-- theme_wrap end -->
+
+
+    </section><!-- theme end -->
+
+</body>
+</html>
