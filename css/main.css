@@ -94,6 +94,7 @@ body{
 
 .main_visual{
     position: relative;
+    height: 789.53px;
 }
 
 .main_visual .slide_wrap{
@@ -102,7 +103,7 @@ body{
 
 .main_visual .slide_wrap .slide{
     display: none;
-    height: 789.53px;
+    height: 100%;
     
 }
 
